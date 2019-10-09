@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Employee } from '../model/employee';
+import { EmployeeService } from '../employee.service';
+import { EmployeeListComponent } from '../employee-list/employee-list.component';
 
 @Component({
   selector: 'app-employee-detail',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() employee: Employee;
+
+  constructor(private employeeService: EmployeeService, private listComponent: EmployeeListComponent) { }
 
   ngOnInit() {
   }
