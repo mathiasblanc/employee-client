@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../model/employee';
-import { EmployeeService } from '../employee.service';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -8,7 +8,6 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./create-employee.component.scss']
 })
 export class CreateEmployeeComponent implements OnInit {
-
   employee: Employee = new Employee();
   submitted = false;
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../employee.service';
+import { EmployeeService } from '../services/employee.service';
 import { Observable } from 'rxjs';
 import { Employee } from '../model/employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -12,7 +13,7 @@ export class EmployeeListComponent implements OnInit {
 
   employees: Observable<Employee[]>;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
@@ -29,6 +30,14 @@ export class EmployeeListComponent implements OnInit {
         this.reloadData();
       }, error => console.log(error)
     );
+  }
+
+  public updateEmployee(id: number) {
+    this.router.navigate(['update', id]);
+  }
+
+  public employeeDetails(id: number) {
+    this.router.navigate(['details', id]);
   }
 
 }
